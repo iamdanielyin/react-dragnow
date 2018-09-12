@@ -24,7 +24,7 @@ const App = () => (
 ReactDOM.render(<App />, document.querySelector('body'))
 ```
 
-![snapshot](snapshot.gif)
+![snapshot](https://raw.githubusercontent.com/yinfxs/react-dragnow/master/snapshot.gif)
 
 ## Props
 
