@@ -24,6 +24,8 @@ const App = () => (
 ReactDOM.render(<App />, document.querySelector('body'))
 ```
 
+![snapshot](snapshot.gif)
+
 ## Props
 
 * `initialLeft` - Initial left value, default is 0.
