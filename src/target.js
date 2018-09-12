@@ -5,7 +5,7 @@ import { DragDropContext, DropTarget } from 'react-dnd'
 export default (type, el, Source, initialProps = {}) => {
   const style = {
     width: '100%',
-    height: document.body.clientHeight || document.documentElement.clientHeight,
+    height: document.documentElement.clientHeight,
     position: 'absolute',
     left: 0,
     top: 0

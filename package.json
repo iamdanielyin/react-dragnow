@@ -1,6 +1,6 @@
 {
   "name": "react-dragnow",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Daniel Yin <yinfxs@gmail.com>",
   "description": "A react-dnd wrapper.",
   "main": "lib/index.js",
