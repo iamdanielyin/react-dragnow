@@ -59,3 +59,12 @@ typings/
 
 # next.js build output
 .next
+
+.idea
+dist
+.DS_Store
+yarn.lock
+package-lock.json
+.vscode
+.history
+.umi

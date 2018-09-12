@@ -1,0 +1,68 @@
+{
+  "name": "react-dragnow",
+  "version": "0.0.1",
+  "author": "Daniel Yin <yinfxs@gmail.com>",
+  "description": "A react-dnd wrapper.",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yinfxs/react-dragnow.git"
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "babel src --out-dir lib --source-maps --extensions .es6,.es,.jsx,.js --copy-files",
+    "watch": "babel src --watch --out-dir lib --source-maps --extensions .es6,.es,.jsx,.js --copy-files",
+    "lint": "standard --verbose",
+    "fix": "standard --fix",
+    "precommit": "npm run lint",
+    "pub": "BABEL_ENV=production npm run build",
+    "prepublish": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "react",
+    "drag",
+    "react-dnd",
+    "wrapper"
+  ],
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/yinfxs/react-dragnow/issues"
+  },
+  "homepage": "https://github.com/yinfxs/react-dragnow#readme",
+  "dependencies": {
+    "react-dnd": "^5.0.0",
+    "react-dnd-html5-backend": "^5.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-minify": "^0.4.3",
+    "babel-preset-react": "^6.24.1",
+    "husky": "^0.14.3",
+    "prop-types": "^15.6.2",
+    "rimraf": "^2.6.2",
+    "standard": "^11.0.1"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "react"
+    ],
+    "plugins": [
+      "transform-runtime",
+      "transform-es2015-modules-umd"
+    ],
+    "env": {
+      "production": {
+        "presets": [
+          "minify",
+          "env",
+          "react"
+        ]
+      }
+    }
+  }
+}
