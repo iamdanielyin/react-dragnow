@@ -26,6 +26,8 @@ ReactDOM.render(<App />, document.querySelector('body'))
 
 ![snapshot](https://raw.githubusercontent.com/yinfxs/react-dragnow/master/snapshot.gif)
 
+[![Edit nz1v07z7p](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/nz1v07z7p)
+
 ## Props
 
 * `initialLeft` - Initial left value, default is 0.
