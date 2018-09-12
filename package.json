@@ -16,7 +16,7 @@
     "fix": "standard --fix",
     "precommit": "npm run lint",
     "pub": "BABEL_ENV=production npm run build",
-    "prepublish": "npm run clean && npm run build"
+    "prepare": "npm run clean && npm run pub"
   },
   "keywords": [
     "react",
