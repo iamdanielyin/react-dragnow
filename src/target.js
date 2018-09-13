@@ -8,7 +8,8 @@ export default (type, el, Source, initialProps = {}) => {
     height: document.documentElement.clientHeight,
     position: 'absolute',
     left: 0,
-    top: 0
+    top: 0,
+    zIndex: 999
   }
 
   const spec = {
