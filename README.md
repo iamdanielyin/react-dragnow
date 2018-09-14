@@ -16,7 +16,7 @@ import ReactDOM from 'react-dom'
 import DragNow from 'react-dragnow'
 
 const App = () => (
-  <DragNow initialLeft={100}>
+  <DragNow>
     <div style={{ width: 300, height: 300, background: '#4a79dc' }} />
   </DragNow>
 )
