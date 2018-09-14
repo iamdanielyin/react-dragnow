@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { DragSource } from 'react-dnd'
+import { getSize } from './utility'
 
 export default (type) => {
   const style = {
-    position: 'absolute',
+    position: 'fixed',
     cursor: 'move',
     pointerEvents: 'auto'
   }
@@ -30,6 +31,17 @@ export default (type) => {
   }
 
   class Source extends Component {
+    constructor () {
+      super()
+      this.state = {
+        sid: `${type}-s`
+      }
+    }
+
+    componentDidMount () {
+      this.props.reportSize(getSize(this.state.sid))
+    }
+
     render () {
       const { isDragging, connectDragSource, el, left, top } = this.props
       const t = window.document.getElementById(`${type}-t`)
@@ -48,7 +60,7 @@ export default (type) => {
       }
       return connectDragSource(
         <div
-          id={`${type}-s`}
+          id={`${this.state.sid}`}
           style={Object.assign({ left, top, opacity: isDragging ? 0.5 : 1 }, style)}
         >
           {el}

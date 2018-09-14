@@ -32,3 +32,4 @@ ReactDOM.render(<App />, document.querySelector('body'))
 
 * `initialLeft` - Initial left value, default is 0.
 * `initialTop` - Initial top value, default is 0.
+* `autoCenter` - Default is true.

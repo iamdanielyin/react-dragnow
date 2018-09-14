@@ -1,11 +1,22 @@
 import React, { Component } from 'react'
 import HTML5Backend from 'react-dnd-html5-backend'
 import { DragDropContext, DropTarget } from 'react-dnd'
+import { getSize } from './utility'
 
-export default (type, Source, initialProps = {}) => {
+export default (type, Source, initialProps = { autoCenter: true }) => {
+  const body = window.document.body
+  const html = window.document.documentElement
+  const height = Math.max(
+    body.offsetHeight,
+    body.scrollHeight,
+    html.clientHeight,
+    html.offsetHeight,
+    html.scrollHeight
+  )
+
   const style = {
     width: '100%',
-    height: document.documentElement.scrollHeight,
+    height,
     position: 'fixed',
     left: 0,
     top: 0,
@@ -35,13 +46,26 @@ export default (type, Source, initialProps = {}) => {
     constructor () {
       super()
       this.state = {
+        tid: `${type}-t`,
         left: initialProps.initialLeft || 0,
         top: initialProps.initialTop || 0
       }
+      this.resetOffest = this.resetOffest.bind(this)
     }
 
     move (left, top) {
       this.setState({ left, top })
+    }
+
+    resetOffest (sourceSize) {
+      const autoCenter = (typeof initialProps.autoCenter === 'boolean') ? initialProps.autoCenter : true
+      if (autoCenter === true) {
+        const targetSize = getSize(this.state.tid)
+        this.setState({
+          left: targetSize.width / 2 - sourceSize.width / 2,
+          top: targetSize.height / 2 - sourceSize.height / 2
+        })
+      }
     }
 
     render () {
@@ -50,8 +74,8 @@ export default (type, Source, initialProps = {}) => {
       return (
         connectDropTarget &&
         connectDropTarget(
-          <div id={`${type}-t`} style={style}>
-            {<Source el={el} left={left} top={top} />}
+          <div id={this.state.tid} style={style}>
+            {<Source el={el} left={left} top={top} reportSize={this.resetOffest} />}
           </div>
         )
       )
