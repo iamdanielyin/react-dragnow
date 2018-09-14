@@ -7,16 +7,15 @@ class App extends React.Component {
     super(props)
     const type = `${Date.now()}`
     const source = Source(type)
-    const el = props.children
-    const target = Target(type, el, source, props)
+    const target = Target(type, source, props)
     this.state = {
-      children: target
+      Target: target
     }
   }
 
   render () {
-    const Children = this.state.children
-    return <Children />
+    const { Target } = this.state
+    return <Target el={this.props.children} />
   }
 }
 

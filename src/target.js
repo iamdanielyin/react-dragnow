@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import HTML5Backend from 'react-dnd-html5-backend'
 import { DragDropContext, DropTarget } from 'react-dnd'
 
-export default (type, el, Source, initialProps = {}) => {
+export default (type, Source, initialProps = {}) => {
   const style = {
     width: '100%',
     height: document.documentElement.clientHeight,
@@ -45,7 +45,7 @@ export default (type, el, Source, initialProps = {}) => {
     }
 
     render () {
-      const { connectDropTarget } = this.props
+      const { connectDropTarget, el } = this.props
       const { left, top } = this.state
       return (
         connectDropTarget &&
