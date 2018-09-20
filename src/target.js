@@ -61,6 +61,7 @@ export default (type, Source, initialProps = { autoCenter: true }) => {
       const autoCenter = (typeof initialProps.autoCenter === 'boolean') ? initialProps.autoCenter : true
       if (autoCenter === true) {
         const targetSize = getSize(this.state.tid)
+        targetSize.height = window.document.body.offsetHeight || targetSize.height
         this.setState({
           left: targetSize.width / 2 - sourceSize.width / 2,
           top: targetSize.height / 2 - sourceSize.height / 2
